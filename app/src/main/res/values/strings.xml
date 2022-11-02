@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Junior_task_users</string>
+    <string name="user_age_string">Age: %d</string>
+    <string name="contacts_string">Contacts:</string>
+    <string name="user_location_string">Location:</string>
+    <string name="user_registered_string">Registered: %s</string>
+    <string name="user_friends_string">Friends:</string>
+</resources>
