@@ -28,14 +28,17 @@ Screens:
   
   Learned and worked with:
   ------------------------
-  - Dependecy Injection (Hilt)
-    * @Inject, @AndroidEntryPoint, @HiltViewModel, @Module, @Provides annotations
-  - Kotlin coroutines
-  - Navigation graph
-  - DataBinding (TODO)
-  - Clean architecture (TODO)
-  - MVVM pattern (TODO)
-  - Implicit intents
+ - Dependecy Injection (Hilt)
+  * @Inject, @AndroidEntryPoint, @HiltViewModel, @Module, @Provides annotations
+ - Kotlin coroutines
+ - Navigation graph
+ - Room
+ - Retrofit
+ - LiveData
+ - DataBinding (TODO)
+ - Clean architecture (TODO)
+ - MVVM pattern (TODO)
+ - Implicit intents
   
   Screenshots
   -----------------------
