@@ -6,7 +6,7 @@ Make an app displaying a list of users.
 Each user is clickable and user's window displays user info and his friends (also clickable).
 Loaded data is cached and not requested again when restarting an app.
 User list can be refreshed using cache data.
-API: [API]("https://firebasestorage.googleapis.com/v0/b/candidates--questionnaire.appspot.com/o/users.json?alt=media&token=e3672c23-b1a5-4ca7-bb77-b6580d75810c")
+API: [API](https://firebasestorage.googleapis.com/v0/b/candidates--questionnaire.appspot.com/o/users.json?alt=media&token=e3672c23-b1a5-4ca7-bb77-b6580d75810c)
 
 Screens:
 -----------------------
