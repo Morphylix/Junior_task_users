@@ -29,7 +29,7 @@ Screens:
   Learned and worked with:
   ------------------------
  - Dependecy Injection (Hilt)
-  * @Inject, @AndroidEntryPoint, @HiltViewModel, @Module, @Provides annotations
+   * @Inject, @AndroidEntryPoint, @HiltViewModel, @Module, @Provides annotations
  - Kotlin coroutines
  - Navigation graph
  - Room
@@ -42,3 +42,6 @@ Screens:
   
   Screenshots
   -----------------------
+![](/img/1.png)
+![](/img/2.png)
+![](/img/3.png)
