@@ -1,4 +1,4 @@
-# Junior_task_users
+Junior_task_users
 ========================
 Task:
 ---------------------
