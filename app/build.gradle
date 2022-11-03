@@ -3,7 +3,7 @@ buildscript {
         google()
     }
     dependencies {
-        def nav_version = "2.5.2"
+        def nav_version = "2.5.3"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
     }
 }
@@ -11,7 +11,7 @@ buildscript {
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
-    id 'androidx.navigation.safeargs.kotlin' version '2.5.2'
+    id 'androidx.navigation.safeargs.kotlin' version '2.5.3'
     id 'org.jetbrains.kotlin.kapt'
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.7.20'
     id 'dagger.hilt.android.plugin'
@@ -43,21 +43,23 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+    buildFeatures {
+        viewBinding true
+        dataBinding true
+    }
 }
 
 dependencies {
-    def fragment_version = "1.5.3"
+    def fragment_version = "1.5.4"
     implementation "androidx.fragment:fragment-ktx:$fragment_version"
 
-    def nav_version = "2.5.2"
+    def nav_version = "2.5.3"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     // Feature module Support
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     // Testing Navigation
     androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
-
-    implementation 'com.google.android.material:material:1.7.0'
 
     def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
@@ -68,7 +70,7 @@ dependencies {
     testImplementation "androidx.room:room-testing:$room_version"
     implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.4.1'
 
-    def retrofit_version = "2.7.2"
+    def retrofit_version = "2.9.0"
     implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
     implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
 
@@ -80,15 +82,11 @@ dependencies {
     implementation "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_viewmodels"
     kapt "androidx.hilt:hilt-compiler:$hilt_viewmodels"
 
-    implementation 'com.squareup.okhttp3:okhttp:3.14.7'
-
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+    implementation 'com.google.android.material:material:1.7.0'
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4'
-    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.6.21'
-
-    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.0.0'
-
-
-
+    implementation 'org.jetbrains.kotlin:kotlin-stdlib:1.7.20'
+    implementation 'androidx.swiperefreshlayout:swiperefreshlayout:1.1.0'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.5.1'
     implementation 'com.google.android.material:material:1.6.1'

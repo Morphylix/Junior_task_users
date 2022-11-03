@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
 
+    style="@style/Widget.Material3.CardView.Filled"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:layout_marginStart="8dp"
-    android:layout_marginEnd="8dp"
-    style="@style/Widget.Material3.CardView.Filled"
-    app:cardCornerRadius="8dp"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="16dp"
+
+    android:layout_marginEnd="16dp"
+    app:cardCornerRadius="16dp"
+
     app:cardElevation="2dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -19,52 +20,47 @@
         android:layout_height="match_parent">
 
         <TextView
-            style="@style/Header1TextView"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-
             android:id="@+id/user_name_text_view"
-
+            style="@style/Header1TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
 
             tools:text="Name" />
 
         <TextView
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/user_name_text_view"
-
             android:id="@+id/user_email_button"
+            style="@style/Header2TextView"
 
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-
-
-            android:layout_marginTop="8dp"
             android:layout_marginStart="16dp"
+            android:layout_marginTop="8dp"
             android:paddingBottom="16dp"
 
-            tools:text="Email"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/user_name_text_view"
+
+            tools:text="Email" />
 
         <ImageView
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-
             android:id="@+id/user_is_active_image_view"
 
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:src="@drawable/is_active_true"
 
-            android:src="@drawable/is_active_true"/>
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-</androidx.cardview.widget.CardView>
+</com.google.android.material.card.MaterialCardView>
 

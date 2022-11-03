@@ -21,8 +21,8 @@
         tools:layout="@layout/fragment_user_details">
         <argument
             android:name="user_id"
-            app:argType="integer"
-            android:defaultValue="-1" />
+            android:defaultValue="-1"
+            app:argType="integer" />
         <action
             android:id="@+id/action_userDetailsFragment_self"
             app:destination="@id/userDetailsFragment" />

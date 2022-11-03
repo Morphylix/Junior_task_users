@@ -1,9 +1,6 @@
 package com.morphylix.android.junior_task_users.data.model.network
 
-import androidx.room.PrimaryKey
 import com.google.gson.annotations.SerializedName
-import com.morphylix.android.junior_task_users.data.model.domain.EyeColor
-import com.morphylix.android.junior_task_users.data.model.domain.Fruit
 import java.util.*
 
 data class UserNetworkEntity(

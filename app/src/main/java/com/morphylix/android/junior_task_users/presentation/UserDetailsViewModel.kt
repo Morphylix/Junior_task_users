@@ -1,6 +1,5 @@
 package com.morphylix.android.junior_task_users.presentation
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +14,7 @@ private const val TAG = "UserDetailsViewModel"
 
 @HiltViewModel
 class UserDetailsViewModel
-    @Inject constructor(private val userRepository: UserRepository): ViewModel() {
+@Inject constructor(private val userRepository: UserRepository) : ViewModel() {
 
     fun getUser(id: Int): Pair<LiveData<User?>, LiveData<List<User>>> {
         val userLiveData: MutableLiveData<User?> = MutableLiveData()
@@ -31,8 +30,4 @@ class UserDetailsViewModel
         }
         return Pair(userLiveData, userFriendsListLiveData)
     }
-
-//    fun testFetchUsers() {
-//        userRepository.testFetchUsersRequest()
-//    }
 }

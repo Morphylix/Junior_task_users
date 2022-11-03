@@ -1,6 +1,5 @@
 package com.morphylix.android.junior_task_users.data.model.network
 
-import com.morphylix.android.junior_task_users.data.model.cache.UserCacheEntity
 import com.morphylix.android.junior_task_users.data.model.domain.EyeColor
 import com.morphylix.android.junior_task_users.data.model.domain.Fruit
 import com.morphylix.android.junior_task_users.data.model.domain.User
@@ -8,24 +7,14 @@ import com.morphylix.android.junior_task_users.util.EntityMapper
 import javax.inject.Inject
 
 class UserNetworkMapper
-    @Inject constructor(): EntityMapper<UserNetworkEntity, User> {
+@Inject constructor() : EntityMapper<UserNetworkEntity, User> {
 
 
     override fun mapFromEntity(entity: UserNetworkEntity): User {
 
-        val eyeColor = when(entity.eyeColor.lowercase()) {
-            "blue" -> EyeColor.BLUE
-            "brown" -> EyeColor.BROWN
-            "green" -> EyeColor.GREEN
-            else -> throw IllegalArgumentException("Wrong eye color")
-        }
+        val eyeColor = EyeColor.convertFromString(entity.eyeColor)
 
-        val favoriteFruit = when(entity.favoriteFruit.lowercase()) {
-            "banana" -> Fruit.BANANA
-            "strawberry" -> Fruit.STRAWBERRY
-            "apple" -> Fruit.APPLE
-            else -> throw IllegalArgumentException("Wrong favorite fruit")
-        }
+        val favoriteFruit = Fruit.convertFromString(entity.favoriteFruit)
 
         val friends: List<Int> = entity.friends.map {
             it.id
@@ -52,17 +41,9 @@ class UserNetworkMapper
 
     override fun mapToEntity(model: User): UserNetworkEntity {
 
-        val eyeColor = when (model.eyeColor) {
-            EyeColor.GREEN -> "green"
-            EyeColor.BLUE -> "blue"
-            EyeColor.BROWN -> "brown"
-        }
+        val eyeColor = EyeColor.convertToString(model.eyeColor)
 
-        val favoriteFruit = when (model.favoriteFruit) {
-            Fruit.APPLE -> "apple"
-            Fruit.BANANA -> "banana"
-            Fruit.STRAWBERRY -> "strawberry"
-        }
+        val favoriteFruit = Fruit.convertToString(model.favoriteFruit)
 
         val friends: List<UserFriendsNetworkEntity> = model.friends.map {
             UserFriendsNetworkEntity(it)

@@ -1,21 +1,12 @@
 package com.morphylix.android.junior_task_users.data
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import com.morphylix.android.junior_task_users.data.api.UserApi
 import com.morphylix.android.junior_task_users.data.database.UserDao
 import com.morphylix.android.junior_task_users.data.model.cache.UserCacheMapper
 import com.morphylix.android.junior_task_users.data.model.domain.User
-import com.morphylix.android.junior_task_users.data.model.network.UserNetworkEntity
 import com.morphylix.android.junior_task_users.data.model.network.UserNetworkMapper
 import com.morphylix.android.junior_task_users.domain.UserRepository
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.withContext
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import java.util.concurrent.Executors
 import javax.inject.Inject
 
 private const val TAG = "UserRepository"

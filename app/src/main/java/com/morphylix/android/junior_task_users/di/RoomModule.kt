@@ -2,10 +2,8 @@ package com.morphylix.android.junior_task_users.di
 
 import android.content.Context
 import androidx.room.Room
-import androidx.room.RoomDatabase
 import com.morphylix.android.junior_task_users.data.database.UserDao
 import com.morphylix.android.junior_task_users.data.database.UserDatabase
-//import com.morphylix.android.junior_task_users.data.database.migration_1_2
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -26,7 +24,7 @@ object RoomModule {
             context,
             UserDatabase::class.java,
             DATABASE_NAME
-            )
+        )
             //.addMigrations(migration_1_2)
             .build()
     }

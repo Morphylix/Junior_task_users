@@ -7,22 +7,12 @@ import com.morphylix.android.junior_task_users.util.EntityMapper
 import javax.inject.Inject
 
 class UserCacheMapper
-    @Inject constructor(): EntityMapper<UserCacheEntity, User> {
+@Inject constructor() : EntityMapper<UserCacheEntity, User> {
     override fun mapFromEntity(entity: UserCacheEntity): User {
 
-        val eyeColor = when(entity.eyeColor.lowercase()) {
-            "blue" -> EyeColor.BLUE
-            "brown" -> EyeColor.BROWN
-            "green" -> EyeColor.GREEN
-            else -> throw IllegalArgumentException("Wrong eye color")
-        }
+        val eyeColor = EyeColor.convertFromString(entity.eyeColor)
 
-        val favoriteFruit = when(entity.favoriteFruit.lowercase()) {
-            "banana" -> Fruit.BANANA
-            "strawberry" -> Fruit.STRAWBERRY
-            "apple" -> Fruit.APPLE
-            else -> throw IllegalArgumentException("Wrong favorite fruit")
-        }
+        val favoriteFruit = Fruit.convertFromString(entity.favoriteFruit)
 
         return User(
             id = entity.id,
@@ -44,17 +34,10 @@ class UserCacheMapper
     }
 
     override fun mapToEntity(model: User): UserCacheEntity {
-        val eyeColor = when(model.eyeColor) {
-            EyeColor.BLUE -> "blue"
-            EyeColor.BROWN -> "brown"
-            EyeColor.GREEN -> "green"
-        }
 
-        val favoriteFruit = when(model.favoriteFruit) {
-            Fruit.BANANA -> "banana"
-            Fruit.STRAWBERRY -> "strawberry"
-            Fruit.APPLE -> "apple"
-        }
+        val eyeColor = EyeColor.convertToString(model.eyeColor)
+
+        val favoriteFruit = Fruit.convertToString(model.favoriteFruit)
 
         return UserCacheEntity(
             id = model.id,

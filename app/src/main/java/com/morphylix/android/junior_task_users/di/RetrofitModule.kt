@@ -2,7 +2,6 @@ package com.morphylix.android.junior_task_users.di
 
 import com.google.gson.Gson
 import com.morphylix.android.junior_task_users.data.api.UserApi
-import com.morphylix.android.junior_task_users.data.model.domain.User
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
