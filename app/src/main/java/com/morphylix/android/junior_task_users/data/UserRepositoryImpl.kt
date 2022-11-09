@@ -3,9 +3,9 @@ package com.morphylix.android.junior_task_users.data
 import android.util.Log
 import com.morphylix.android.junior_task_users.data.api.UserApi
 import com.morphylix.android.junior_task_users.data.database.UserDao
-import com.morphylix.android.junior_task_users.data.model.cache.UserCacheMapper
-import com.morphylix.android.junior_task_users.data.model.domain.User
-import com.morphylix.android.junior_task_users.data.model.network.UserNetworkMapper
+import com.morphylix.android.junior_task_users.domain.model.cache.UserCacheMapper
+import com.morphylix.android.junior_task_users.domain.model.domain.User
+import com.morphylix.android.junior_task_users.domain.model.network.UserNetworkMapper
 import com.morphylix.android.junior_task_users.domain.UserRepository
 import javax.inject.Inject
 
@@ -38,14 +38,9 @@ class UserRepositoryImpl
         return user
     }
 
-    override suspend fun cacheUserList(userList: List<User>) {
+    private suspend fun cacheUserList(userList: List<User>) {
         userDao.addUserList(userList.map {
             userCacheMapper.mapToEntity(it)
         })
     }
-
-    //////////////////////////////// RETROFIT //////////////////////////////////
-
-
-    /////////////////////////////// /RETROFIT ///////////////////////////////////
 }

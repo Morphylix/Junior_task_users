@@ -1,18 +1,24 @@
-package com.morphylix.android.junior_task_users.data.model.cache
+package com.morphylix.android.junior_task_users.domain.model.network
 
-import com.morphylix.android.junior_task_users.data.model.domain.EyeColor
-import com.morphylix.android.junior_task_users.data.model.domain.Fruit
-import com.morphylix.android.junior_task_users.data.model.domain.User
+import com.morphylix.android.junior_task_users.domain.model.domain.EyeColor
+import com.morphylix.android.junior_task_users.domain.model.domain.Fruit
+import com.morphylix.android.junior_task_users.domain.model.domain.User
 import com.morphylix.android.junior_task_users.util.EntityMapper
 import javax.inject.Inject
 
-class UserCacheMapper
-@Inject constructor() : EntityMapper<UserCacheEntity, User> {
-    override fun mapFromEntity(entity: UserCacheEntity): User {
+class UserNetworkMapper
+@Inject constructor() : EntityMapper<UserNetworkEntity, User> {
+
+
+    override fun mapFromEntity(entity: UserNetworkEntity): User {
 
         val eyeColor = EyeColor.convertFromString(entity.eyeColor)
 
         val favoriteFruit = Fruit.convertFromString(entity.favoriteFruit)
+
+        val friends: List<Int> = entity.friends.map {
+            it.id
+        }
 
         return User(
             id = entity.id,
@@ -29,17 +35,21 @@ class UserCacheMapper
             registerDate = entity.registerDate,
             latitude = entity.latitude,
             longitude = entity.longitude,
-            friends = entity.friends
+            friends = friends
         )
     }
 
-    override fun mapToEntity(model: User): UserCacheEntity {
+    override fun mapToEntity(model: User): UserNetworkEntity {
 
         val eyeColor = EyeColor.convertToString(model.eyeColor)
 
         val favoriteFruit = Fruit.convertToString(model.favoriteFruit)
 
-        return UserCacheEntity(
+        val friends: List<UserFriendsNetworkEntity> = model.friends.map {
+            UserFriendsNetworkEntity(it)
+        }
+
+        return UserNetworkEntity(
             id = model.id,
             name = model.name,
             email = model.email,
@@ -54,13 +64,13 @@ class UserCacheMapper
             registerDate = model.registerDate,
             latitude = model.latitude,
             longitude = model.longitude,
-            friends = model.friends
+            friends = friends
         )
     }
 
-    fun mapFromEntityList(entityList: List<UserCacheEntity>): List<User> {
-        return entityList.map {
-            mapFromEntity(it)
+    fun mapFromEntityList(entities: List<UserNetworkEntity>): List<User> {
+        return entities.map { entity ->
+            mapFromEntity(entity)
         }
     }
 }

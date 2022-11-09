@@ -1,10 +1,12 @@
-package com.morphylix.android.junior_task_users.data.model.network
+package com.morphylix.android.junior_task_users.domain.model.cache
 
-import com.google.gson.annotations.SerializedName
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import java.util.*
 
-data class UserNetworkEntity(
-    val id: Int = 0,
+@Entity
+data class UserCacheEntity(
+    @PrimaryKey val id: Int = 0,
     val name: String = "Name",
     val email: String = "Email",
     val isActive: Boolean = true,
@@ -15,9 +17,9 @@ data class UserNetworkEntity(
     val about: String = "",
     val eyeColor: String = "blue",
     val favoriteFruit: String = "banana",
-    @SerializedName("registered") val registerDate: Date = Date(42114413413),
+    val registerDate: Date = Date(42114413413),
     val latitude: Float = 0.0f,
     val longitude: Float = 0.0f,
-    val friends: List<UserFriendsNetworkEntity> = mutableListOf()
+    val friends: List<Int> = mutableListOf()
 
 )

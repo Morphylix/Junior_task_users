@@ -1,11 +1,11 @@
-package com.morphylix.android.junior_task_users.presentation
+package com.morphylix.android.junior_task_users.presentation.user_details
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.morphylix.android.junior_task_users.data.model.domain.User
 import com.morphylix.android.junior_task_users.domain.UserRepository
+import com.morphylix.android.junior_task_users.domain.model.domain.User
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

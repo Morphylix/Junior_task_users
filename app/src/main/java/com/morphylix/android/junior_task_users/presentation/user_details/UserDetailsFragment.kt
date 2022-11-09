@@ -1,4 +1,4 @@
-package com.morphylix.android.junior_task_users.presentation
+package com.morphylix.android.junior_task_users.presentation.user_details
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -19,7 +19,8 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.morphylix.android.junior_task_users.data.model.domain.User
+import com.morphylix.android.junior_task_users.domain.model.domain.User
+import com.morphylix.android.junior_task_users.presentation.R
 import com.morphylix.android.junior_task_users.presentation.databinding.FragmentUserDetailsBinding
 
 private const val TAG = "UserDetailsFragment"

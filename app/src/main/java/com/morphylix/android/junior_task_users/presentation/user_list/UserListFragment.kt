@@ -1,4 +1,4 @@
-package com.morphylix.android.junior_task_users.presentation
+package com.morphylix.android.junior_task_users.presentation.user_list
 
 import android.os.Bundle
 import android.util.Log
@@ -7,13 +7,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.morphylix.android.junior_task_users.data.model.domain.User
+import com.morphylix.android.junior_task_users.domain.model.domain.User
+import com.morphylix.android.junior_task_users.presentation.R
 import com.morphylix.android.junior_task_users.presentation.databinding.FragmentUserListBinding
 import com.morphylix.android.junior_task_users.presentation.databinding.UserListItemBinding
+import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 private const val TAG = "UserListFragment"
 
@@ -34,13 +38,8 @@ class UserListFragment : Fragment() {
         _binding = FragmentUserListBinding.inflate(inflater, container, false)
         val view = binding.root
         binding.userListRecyclerView.layoutManager = LinearLayoutManager(context)
-        userListRecyclerViewAdapter = userListViewModel.userListLiveData.value.let {
-            if (it != null) {
-                UserListAdapter(it)
-            } else {
-                UserListAdapter(listOf())
-            }
-        }
+        userListRecyclerViewAdapter = UserListAdapter(listOf())
+
         binding.userListRecyclerView.adapter = userListRecyclerViewAdapter
         userListSwipeRefreshLayout = view.findViewById(R.id.user_list_swipe_refresh_layout)
         userListSwipeRefreshLayout.setOnRefreshListener {

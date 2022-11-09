@@ -1,6 +1,6 @@
 package com.morphylix.android.junior_task_users.data.api
 
-import com.morphylix.android.junior_task_users.data.model.network.UserNetworkEntity
+import com.morphylix.android.junior_task_users.domain.model.network.UserNetworkEntity
 import retrofit2.http.GET
 
 interface UserApi {

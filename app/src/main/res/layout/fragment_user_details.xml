@@ -9,6 +9,7 @@
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/user_details_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".MainActivity">
@@ -18,7 +19,7 @@
 
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:src="@drawable/apple"
+            tools:src="@drawable/apple"
 
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -153,7 +154,7 @@
             android:layout_height="10dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="14dp"
-            android:src="@drawable/eye_color_blue"
+            tools:src="@drawable/eye_color_blue"
 
             app:layout_constraintLeft_toRightOf="@id/user_name_text_view"
             app:layout_constraintTop_toTopOf="@id/user_name_text_view" />
@@ -205,6 +206,7 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginTop="16dp"
+            android:paddingBottom="16dp"
 
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@id/user_friends_text_view" />

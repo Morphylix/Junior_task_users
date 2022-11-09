@@ -1,8 +1,6 @@
-package com.morphylix.android.junior_task_users.data.model.domain
+package com.morphylix.android.junior_task_users.domain.model.domain
 
 import androidx.room.Entity
-import androidx.room.PrimaryKey
-import com.google.gson.annotations.SerializedName
 import java.util.*
 
 @Entity
