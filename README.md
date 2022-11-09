@@ -35,9 +35,9 @@ Screens:
  - Room
  - Retrofit
  - LiveData
- - DataBinding (TODO)
- - Clean architecture (TODO)
- - MVVM pattern (TODO)
+ - ViewBinding
+ - Clean architecture
+ - MVVM pattern
  - Implicit intents
   
   Screenshots
