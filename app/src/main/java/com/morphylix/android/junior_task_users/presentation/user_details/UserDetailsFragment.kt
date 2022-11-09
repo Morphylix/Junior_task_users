@@ -82,9 +82,9 @@ class UserDetailsFragment : Fragment() {
         }
 
         val currentUserFriendsLiveData = currentUserLiveDataPair.second
-        currentUserFriendsLiveData.observe(viewLifecycleOwner, Observer { friendsList ->
+        currentUserFriendsLiveData.observe(viewLifecycleOwner) { friendsList ->
             binding.userFriendListRecyclerView.adapter = UserFriendsAdapter(friendsList)
-        })
+        }
     }
 
     class UserFriendsViewHolder(view: View) : RecyclerView.ViewHolder(view), View.OnClickListener {
