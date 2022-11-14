@@ -1,11 +1,13 @@
 package com.morphylix.android.junior_task_users.presentation.user_list
 
 import android.util.Log
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.morphylix.android.junior_task_users.domain.model.domain.User
 import com.morphylix.android.junior_task_users.presentation.R
 import com.morphylix.android.junior_task_users.presentation.databinding.UserListItemBinding
@@ -32,12 +34,16 @@ class UserViewHolder(private val binding: UserListItemBinding) :
         }
     }
 
-    override fun onClick(p0: View?) {
+    override fun onClick(p0: View) {
         if (user.isActive) {
             val userId = user.id
             val action =
                 UserListFragmentDirections.actionUserListFragmentToUserDetailsFragment(userId)
-            p0?.findNavController()?.navigate(action)
+            p0.findNavController().navigate(action)
+        } else {
+            val snackbar = Snackbar.make(p0, R.string.user_is_off, Snackbar.LENGTH_SHORT)
+            snackbar.view.setBackgroundColor(R.color.md_theme_dark_background)
+            snackbar.show()
         }
     }
 }

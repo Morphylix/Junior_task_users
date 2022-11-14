@@ -1,18 +1,13 @@
 package com.morphylix.android.junior_task_users.presentation.user_details
 
-import android.annotation.SuppressLint
 import android.content.Intent
-import android.icu.text.SimpleDateFormat
+import java.text.SimpleDateFormat
 import android.net.Uri
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.Toast
-import androidx.activity.addCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
@@ -21,6 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.morphylix.android.junior_task_users.domain.model.domain.User
 import com.morphylix.android.junior_task_users.presentation.R
 import com.morphylix.android.junior_task_users.presentation.databinding.FragmentUserDetailsBinding
+import java.util.*
 
 private const val TAG = "UserDetailsFragment"
 
@@ -31,11 +27,8 @@ class UserDetailsFragment : Fragment() {
 
     private val userDetailsViewModel: UserDetailsViewModel by activityViewModels()
 
-    @SuppressLint("SimpleDateFormat")
-    private val dateFormat = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-        SimpleDateFormat("HH:mm dd.MM.yyyy")
-    } else {
-        TODO("VERSION.SDK_INT < N")
+    private val dateFormat = SimpleDateFormat("HH:mm dd.MM.yyyy", Locale.ENGLISH).apply {
+        timeZone = UTC_TIMEZONE
     }
 
     private val args: UserDetailsFragmentArgs by navArgs()
@@ -54,10 +47,8 @@ class UserDetailsFragment : Fragment() {
 
         provideListeners()
 
-
         return view
     }
-
 
 
     override fun onDestroyView() {
@@ -88,12 +79,10 @@ class UserDetailsFragment : Fragment() {
             userAgeTextView.text = getString(R.string.user_age_string, currentUser.age)
             userPhoneButton.text = currentUser.phone
             userEmailButton.text = currentUser.email
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                userRegisterDateTextView.text = getString(
-                    R.string.user_registered_string,
-                    dateFormat.format(currentUser.registerDate).toString()
-                )
-            }
+            userRegisterDateTextView.text = getString(
+                R.string.user_registered_string,
+                dateFormat.format(currentUser.registerDate).toString()
+            )
             userCoordinatesButton.text = getString(
                 R.string.user_coordinates_string,
                 currentUser.latitude,
@@ -133,5 +122,9 @@ class UserDetailsFragment : Fragment() {
         binding.userCoordinatesButton.setOnClickListener {
             startActivity(startGeoIntent(it as Button))
         }
+    }
+
+    companion object {
+        private val UTC_TIMEZONE = TimeZone.getTimeZone("UTC")
     }
 }

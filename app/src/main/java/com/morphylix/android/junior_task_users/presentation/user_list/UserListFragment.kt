@@ -12,6 +12,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import com.google.android.material.snackbar.Snackbar
 import com.morphylix.android.junior_task_users.domain.model.domain.User
 import com.morphylix.android.junior_task_users.presentation.R
 import com.morphylix.android.junior_task_users.presentation.databinding.FragmentUserListBinding

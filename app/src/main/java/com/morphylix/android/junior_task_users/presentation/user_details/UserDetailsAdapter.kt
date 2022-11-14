@@ -7,6 +7,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.snackbar.Snackbar
 import com.morphylix.android.junior_task_users.domain.model.domain.User
 import com.morphylix.android.junior_task_users.presentation.R
 
@@ -32,11 +33,15 @@ class UserFriendsViewHolder(view: View) : RecyclerView.ViewHolder(view), View.On
         }
     }
 
-    override fun onClick(p0: View?) {
+    override fun onClick(p0: View) {
         if (user.isActive) {
             val userId = user.id
             val action = UserDetailsFragmentDirections.actionUserDetailsFragmentSelf(userId)
-            p0?.findNavController()?.navigate(action)
+            p0.findNavController().navigate(action)
+        } else {
+            val snackbar = Snackbar.make(p0, R.string.user_is_off, Snackbar.LENGTH_SHORT)
+            snackbar.view.setBackgroundColor(R.color.md_theme_dark_background)
+            snackbar.show()
         }
     }
 }
